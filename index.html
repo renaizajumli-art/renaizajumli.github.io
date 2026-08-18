@@ -1,0 +1,2519 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Regional Science High School for Region IX</title>
+
+    <!-- FAVICON -->
+    <link rel="icon"
+          type="image/png"
+          href="601d3073-4c7a-44de-b0ac-654553fd2fee-removebg-preview-removebg-preview.png">
+
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
+          rel="stylesheet">
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', Arial, sans-serif;
+            background: #ffffff;
+            color: #17251b;
+            overflow: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        .img-fallback {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            min-height: 180px;
+            background: linear-gradient(135deg, #173b20, #2a5e36);
+            color: #ffe600;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+        }
+
+        #intro {
+            position: fixed;
+            inset: 0;
+            background: #ffe600;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 99999;
+            overflow: hidden;
+        }
+
+        #cheetah {
+            position: absolute;
+            width: 450px;
+            max-width: 70vw;
+            left: 50%;
+            top: 50%;
+
+            transform:
+                translateX(-50%)
+                translateY(calc(-50% + 500px))
+                scale(0.8);
+
+            cursor: pointer;
+
+            animation:
+                popUp
+                1.2s
+                cubic-bezier(.2,.8,.3,1.25)
+                forwards,
+
+                zoomIn
+                1.1s
+                cubic-bezier(.7,0,1,.3)
+                2.5s
+                forwards;
+        }
+
+
+        @keyframes popUp {
+
+            0% {
+                transform:
+                    translateX(-50%)
+                    translateY(calc(-50% + 500px))
+                    scale(.8);
+            }
+
+            70% {
+                transform:
+                    translateX(-50%)
+                    translateY(calc(-50% - 20px))
+                    scale(1.05);
+            }
+
+            85% {
+                transform:
+                    translateX(-50%)
+                    translateY(calc(-50% + 10px))
+                    scale(.98);
+            }
+
+            100% {
+                transform:
+                    translateX(-50%)
+                    translateY(-50%)
+                    scale(1);
+            }
+
+        }
+
+        @keyframes zoomIn {
+
+            0% {
+                transform:
+                    translateX(-50%)
+                    translateY(-50%)
+                    scale(1);
+            }
+
+            100% {
+                transform:
+                    translateX(-50%)
+                    translateY(-50%)
+                    scale(8);
+            }
+
+        }
+
+
+        #website {
+            opacity: 0;
+
+            animation:
+                websiteAppear
+                1s
+                ease
+                3.2s
+                forwards;
+        }
+
+        @keyframes websiteAppear {
+
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+
+        }
+
+
+
+        .top-bar {
+            background: #173b20;
+            color: white;
+
+            padding: 9px 6%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            font-size: 12px;
+        }
+
+        .top-bar-right {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav {
+            background: white;
+
+            height: 85px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 0 6%;
+
+            position: sticky;
+            top: 0;
+
+            z-index: 5000;
+
+            box-shadow:
+                0 2px 15px rgba(0,0,0,.08);
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .logo-area img {
+            width: 55px;
+            height: 55px;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            font-weight: 800;
+            font-size: 14px;
+            line-height: 1.2;
+            color: #173b20;
+            max-width: 210px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 12px;
+            font-weight: 700;
+            color: #26362a;
+            transition: .25s;
+        }
+
+        .nav-links a:hover {
+            color: #c49b00;
+        }
+
+        .nav-button {
+            background: #ffe600;
+            padding: 13px 18px;
+            border-radius: 3px;
+        }
+
+        .nav-button:hover {
+            background: #173b20 !important;
+            color: white !important;
+        }
+
+
+        .hero {
+            min-height: 680px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(10,35,17,.93),
+                    rgba(10,35,17,.60),
+                    rgba(10,35,17,.20)
+                ),
+                radial-gradient(circle at top left, rgba(255,230,0,.18), transparent 25%),
+                linear-gradient(135deg, #173b20 0%, #234c2d 40%, #0d2015 100%);
+
+            background-size: cover;
+            background-position: center;
+
+            display: flex;
+            align-items: center;
+
+            padding: 100px 8%;
+
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .eyebrow {
+            color: #d5a900;
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 3px;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            font-family:
+                'Playfair Display',
+                serif;
+
+            font-size:
+                clamp(45px, 6vw, 82px);
+
+            line-height: 1.02;
+            margin-bottom: 25px;
+        }
+
+        .hero p {
+            max-width: 650px;
+
+            line-height: 1.8;
+            font-size: 17px;
+
+            color: #eeeeee;
+
+            margin-bottom: 35px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .button {
+            display: inline-block;
+
+            padding: 15px 25px;
+
+            font-size: 13px;
+            font-weight: 800;
+
+            border-radius: 2px;
+
+            transition: .25s;
+        }
+
+        .button-yellow {
+            background: #ffe600;
+            color: #173b20;
+        }
+
+        .button-yellow:hover {
+            transform: translateY(-3px);
+            background: white;
+        }
+
+        .button-outline {
+            border: 2px solid white;
+            color: white;
+        }
+
+        .button-outline:hover {
+            background: white;
+            color: #173b20;
+        }
+
+
+        .quick-links {
+            display: grid;
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            background: #173b20;
+            color: white;
+        }
+
+        .quick-link {
+            padding: 35px 30px;
+
+            border-right:
+                1px solid rgba(255,255,255,.15);
+
+            transition: .25s;
+        }
+
+        .quick-link:hover {
+            background: #24562e;
+        }
+
+        .quick-link h3 {
+            font-size: 17px;
+            margin-bottom: 8px;
+        }
+
+        .quick-link p {
+            color: #cccccc;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+
+        .section {
+            padding: 100px 8%;
+        }
+
+        .section-heading {
+            display: flex;
+            justify-content: space-between;
+
+            gap: 50px;
+            margin-bottom: 55px;
+        }
+
+        .section-heading h2 {
+            font-family:
+                'Playfair Display',
+                serif;
+
+            font-size:
+                clamp(38px, 5vw, 58px);
+
+            color: #173b20;
+
+            max-width: 750px;
+        }
+
+        .section-heading p {
+            max-width: 500px;
+
+            line-height: 1.8;
+            color: #666;
+
+            margin-top: 20px;
+        }
+
+
+        .about {
+            background: #f5f4ed;
+        }
+
+        .about-grid {
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 60px;
+
+            align-items: center;
+        }
+
+        .about-image {
+            height: 450px;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(23,59,32,.15),
+                    rgba(23,59,32,.4)
+                ),
+                linear-gradient(135deg, #d7c45d 0%, #f5f4ed 35%, #173b20 100%);
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .about-text h3 {
+            font-family:
+                'Playfair Display',
+                serif;
+
+            font-size: 34px;
+
+            color: #173b20;
+
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            line-height: 1.9;
+
+            color: #555;
+
+            margin-bottom: 18px;
+        }
+
+
+        .academic-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+        .academic-card {
+            padding: 35px;
+
+            border:
+                1px solid #dddddd;
+
+            min-height: 250px;
+
+            transition: .25s;
+        }
+
+        .academic-card:hover {
+            transform: translateY(-7px);
+
+            box-shadow:
+                0 12px 30px rgba(0,0,0,.10);
+        }
+
+        .academic-number {
+            font-size: 40px;
+
+            font-weight: 800;
+
+            color: #d4ae00;
+
+            margin-bottom: 20px;
+        }
+
+        .academic-card h3 {
+            font-size: 22px;
+
+            color: #173b20;
+
+            margin-bottom: 12px;
+        }
+
+        .academic-card p {
+            color: #666;
+
+            line-height: 1.7;
+
+            font-size: 14px;
+        }
+
+
+        .student-life {
+            background: #f4f4ef;
+        }
+
+        .student-category {
+            margin-bottom: 55px;
+        }
+
+        .student-category h3 {
+            color: #173b20;
+
+            font-size: 28px;
+
+            margin-bottom: 20px;
+
+            border-left:
+                5px solid #ffe600;
+
+            padding-left: 15px;
+        }
+
+        .organization-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .organization-list span {
+            background: white;
+
+            border:
+                1px solid #dddddd;
+
+            padding: 14px 20px;
+
+            color: #173b20;
+
+            font-weight: 700;
+
+            font-size: 13px;
+
+            transition: .25s;
+        }
+
+        .organization-list span:hover {
+            background: #173b20;
+
+            color: white;
+
+            transform: translateY(-3px);
+        }
+
+
+        .staff-title {
+            margin-bottom: 25px;
+        }
+
+        .staff-title h3 {
+            color: #173b20;
+
+            font-size: 30px;
+
+            margin-bottom: 8px;
+        }
+
+        .staff-title p {
+            color: #666;
+
+            line-height: 1.6;
+        }
+
+        .non-teaching {
+            margin-top: 70px;
+        }
+
+        .staff-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 20px;
+
+            margin-bottom: 40px;
+        }
+
+        .staff-card {
+            background: white;
+
+            border:
+                1px solid #dddddd;
+
+            overflow: hidden;
+
+            transition: .25s;
+        }
+
+        .staff-card:hover {
+            transform: translateY(-6px);
+
+            box-shadow:
+                0 10px 25px rgba(0,0,0,.12);
+        }
+
+        .staff-photo {
+            width: 100%;
+            height: 300px;
+
+            background: #eeeeee;
+
+            overflow: hidden;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+        }
+
+        .staff-photo img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+        }
+
+        .staff-info {
+            padding: 20px;
+        }
+
+        .staff-info h3 {
+            color: #173b20;
+
+            font-size: 18px;
+
+            margin-bottom: 7px;
+        }
+
+        .staff-info p {
+            color: #777;
+
+            font-size: 13px;
+        }
+
+
+        .admissions {
+            background: #f5f4ed;
+        }
+
+        .admissions-box {
+            background: #173b20;
+
+            color: white;
+
+            padding: 60px;
+
+            display: grid;
+
+            grid-template-columns:
+                2fr 1fr;
+
+            gap: 50px;
+
+            align-items: center;
+        }
+
+        .admissions-box h2 {
+            font-family:
+                'Playfair Display',
+                serif;
+
+            font-size: 48px;
+
+            margin-bottom: 15px;
+        }
+
+        .admissions-box p {
+            color: #dddddd;
+
+            line-height: 1.8;
+        }
+
+
+        .contact {
+            background: #173b20;
+
+            color: white;
+        }
+
+        .contact .section-heading h2 {
+            color: white;
+        }
+
+        .contact .section-heading p {
+            color: #cccccc;
+        }
+
+        .contact .eyebrow {
+            color: #ffe600;
+        }
+
+        .contact-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+        .contact-card {
+            background:
+                rgba(255,255,255,.08);
+
+            border:
+                1px solid rgba(255,255,255,.2);
+
+            padding: 30px;
+
+            display: flex;
+
+            gap: 20px;
+
+            align-items: flex-start;
+
+            color: white;
+
+            transition: .25s;
+        }
+
+        .contact-card:hover {
+            background:
+                rgba(255,255,255,.15);
+
+            transform: translateY(-5px);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+
+            min-width: 50px;
+
+            background: #ffe600;
+
+            color: #173b20;
+
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            font-size: 23px;
+
+            font-weight: 800;
+
+            border-radius: 50%;
+        }
+
+        .contact-card h3 {
+            font-size: 20px;
+
+            margin-bottom: 8px;
+        }
+
+        .contact-card p {
+            color: #dddddd;
+
+            line-height: 1.6;
+
+            margin-bottom: 10px;
+
+            font-size: 14px;
+        }
+
+        .contact-card span {
+            color: #ffe600;
+
+            font-size: 12px;
+
+            font-weight: 700;
+        }
+
+
+        footer {
+            background: #0c2112;
+
+            color: white;
+
+            padding: 45px 8%;
+        }
+
+        .footer-grid {
+            display: grid;
+
+            grid-template-columns:
+                2fr 1fr 1fr;
+
+            gap: 50px;
+        }
+
+        .footer-brand h2 {
+            font-family:
+                'Playfair Display',
+                serif;
+
+            font-size: 28px;
+
+            margin-bottom: 15px;
+        }
+
+        .footer-brand p {
+            color: #aaa;
+
+            line-height: 1.7;
+
+            font-size: 13px;
+
+            max-width: 500px;
+        }
+
+        footer h3 {
+            font-size: 14px;
+
+            margin-bottom: 15px;
+        }
+
+        footer ul {
+            list-style: none;
+        }
+
+        footer li {
+            margin-bottom: 9px;
+
+            color: #aaa;
+
+            font-size: 13px;
+        }
+
+        footer li a:hover {
+            color: #ffe600;
+        }
+
+        .copyright {
+            border-top:
+                1px solid rgba(255,255,255,.1);
+
+            margin-top: 40px;
+
+            padding-top: 20px;
+
+            color: #777;
+
+            font-size: 11px;
+        }
+
+
+        @media (max-width: 1000px) {
+
+            .nav-links {
+                gap: 12px;
+            }
+
+            .nav-links a {
+                font-size: 10px;
+            }
+
+            .quick-links {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .academic-grid {
+                grid-template-columns:
+                    1fr 1fr;
+            }
+
+            .staff-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .contact-grid {
+                grid-template-columns:
+                    1fr;
+            }
+
+        }
+
+
+        @media (max-width: 700px) {
+
+            .top-bar {
+                display: none;
+            }
+
+            nav {
+                height: 75px;
+
+                padding: 0 5%;
+            }
+
+            .logo-area img {
+                width: 45px;
+                height: 45px;
+            }
+
+            .logo-text {
+                font-size: 10px;
+
+                max-width: 150px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                min-height: 600px;
+
+                padding: 70px 7%;
+            }
+
+            .hero h1 {
+                font-size: 45px;
+            }
+
+            .section {
+                padding: 70px 7%;
+            }
+
+            .section-heading {
+                display: block;
+            }
+
+            .quick-links {
+                grid-template-columns: 1fr;
+            }
+
+            .about-grid {
+                grid-template-columns:
+                    1fr;
+            }
+
+            .about-image {
+                height: 300px;
+            }
+
+            .academic-grid {
+                grid-template-columns:
+                    1fr;
+            }
+
+            .staff-grid {
+                grid-template-columns:
+                    1fr;
+            }
+
+            .admissions-box {
+                grid-template-columns:
+                    1fr;
+
+                padding: 35px;
+            }
+
+            .admissions-box h2 {
+                font-size: 38px;
+            }
+
+            .footer-grid {
+                grid-template-columns:
+                    1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <div id="intro">
+
+        <img
+            src="Untitled_design__3_-removebg-preview.png"
+            id="cheetah"
+            alt="RSHS Cheetah Mascot">
+
+        <audio
+            id="roar"
+            preload="auto"
+            src="./a55873b7-ead8-4d08-b566-c3410cc566b3.mp3">
+        </audio>
+
+    </div>
+
+
+    <div id="website">
+
+
+        <!-- TOP BAR -->
+
+        <div class="top-bar">
+
+            <div>
+                REGIONAL SCIENCE HIGH SCHOOL
+                FOR REGION IX
+            </div>
+
+            <div class="top-bar-right">
+
+                <span>
+                    (062) 985-1484
+                </span>
+
+                <a
+                    href="https://www.facebook.com/rshs.ix"
+                    target="_blank">
+
+                    Facebook
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- NAVIGATION -->
+
+        <nav>
+
+            <a
+                href="#home"
+                class="logo-area">
+
+                <img
+                    src="601d3073-4c7a-44de-b0ac-654553fd2fee-removebg-preview-removebg-preview.png"
+                    alt="RSHS Logo">
+
+                <div class="logo-text">
+
+                    REGIONAL SCIENCE
+                    HIGH SCHOOL
+                    FOR REGION IX
+
+                </div>
+
+            </a>
+
+
+            <ul class="nav-links">
+
+                <li>
+                    <a href="#home">
+                        HOME
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#about">
+                        ABOUT
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#academics">
+                        ACADEMICS
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#student-life">
+                        STUDENT LIFE
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#staff">
+                        STAFF
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#contact">
+                        CONTACT
+                    </a>
+                </li>
+
+                <li>
+
+                    <a
+                        href="#admissions"
+                        class="nav-button">
+
+                        ADMISSIONS
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </nav>
+
+
+
+        <!-- HOME -->
+
+        <section
+            class="hero"
+            id="home">
+
+            <div class="hero-content">
+
+                <div class="eyebrow">
+
+                    REGIONAL SCIENCE HIGH SCHOOL
+                    FOR REGION IX
+
+                </div>
+
+                <h1>
+
+                    Where science,
+                    curiosity, and
+                    excellence meet.
+
+                </h1>
+
+                <p>
+
+                    Welcome to the official website
+                    of Regional Science High School
+                    for Region IX. Explore our
+                    academics, student community,
+                    organizations, and opportunities
+                    for future scientists and innovators.
+
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a
+                        href="#about"
+                        class="button button-yellow">
+
+                        DISCOVER RSHS
+
+                    </a>
+
+                    <a
+                        href="#contact"
+                        class="button button-outline">
+
+                        CONTACT US
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- QUICK LINKS -->
+
+        <div class="quick-links">
+
+            <a
+                href="#academics"
+                class="quick-link">
+
+                <h3>
+                    Academics
+                </h3>
+
+                <p>
+                    Explore science,
+                    mathematics, research,
+                    and innovation.
+                </p>
+
+            </a>
+
+
+            <a
+                href="#student-life"
+                class="quick-link">
+
+                <h3>
+                    Student Life
+                </h3>
+
+                <p>
+                    Discover clubs,
+                    organizations, and
+                    school publications.
+                </p>
+
+            </a>
+
+
+            <a
+                href="#staff"
+                class="quick-link">
+
+                <h3>
+                    Our Staff
+                </h3>
+
+                <p>
+                    Meet the people who
+                    help our students
+                    achieve excellence.
+                </p>
+
+            </a>
+
+
+            <a
+                href="#contact"
+                class="quick-link">
+
+                <h3>
+                    Contact
+                </h3>
+
+                <p>
+                    Get in touch with
+                    Regional Science
+                    High School.
+                </p>
+
+            </a>
+
+        </div>
+
+
+
+        <!-- ABOUT -->
+
+        <section
+            class="about"
+            id="about">
+
+            <div class="section">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <div class="eyebrow">
+                            ABOUT RSHS IX
+                        </div>
+
+                        <h2>
+
+                            Preparing students
+                            for a world of
+                            discovery.
+
+                        </h2>
+
+                    </div>
+
+                    <p>
+
+                        Regional Science High School
+                        for Region IX is dedicated to
+                        developing students who are
+                        passionate about science,
+                        mathematics, research,
+                        innovation, and learning.
+
+                    </p>
+
+                </div>
+
+
+                <div class="about-grid">
+
+                    <div class="about-image">
+                    </div>
+
+                    <div class="about-text">
+
+                        <h3>
+
+                            Excellence through
+                            science and education.
+
+                        </h3>
+
+                        <p>
+
+                            RSHS provides a learning
+                            environment where students
+                            can develop their knowledge,
+                            skills, creativity, and
+                            critical-thinking abilities.
+
+                        </p>
+
+                        <p>
+
+                            Through academic programs,
+                            student organizations,
+                            research activities, and
+                            community involvement,
+                            students are encouraged to
+                            become responsible and
+                            innovative members of society.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ACADEMICS -->
+
+        <section
+            class="section"
+            id="academics">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <div class="eyebrow">
+                        ACADEMICS
+                    </div>
+
+                    <h2>
+
+                        Learn beyond the
+                        classroom.
+
+                    </h2>
+
+                </div>
+
+                <p>
+
+                    Explore learning,
+                    science, mathematics,
+                    research, and innovation.
+
+                </p>
+
+            </div>
+
+
+            <div class="academic-grid">
+
+                <div class="academic-card">
+
+                    <div class="academic-number">
+                        01
+                    </div>
+
+                    <h3>
+                        Science
+                    </h3>
+
+                    <p>
+
+                        Develop scientific knowledge,
+                        experimentation skills,
+                        curiosity, and problem-solving
+                        abilities.
+
+                    </p>
+
+                </div>
+
+
+                <div class="academic-card">
+
+                    <div class="academic-number">
+                        02
+                    </div>
+
+                    <h3>
+                        Mathematics
+                    </h3>
+
+                    <p>
+
+                        Strengthen analytical thinking,
+                        mathematical reasoning, and
+                        quantitative problem-solving.
+
+                    </p>
+
+                </div>
+
+
+                <div class="academic-card">
+
+                    <div class="academic-number">
+                        03
+                    </div>
+
+                    <h3>
+                        Research & Innovation
+                    </h3>
+
+                    <p>
+
+                        Encourage students to explore
+                        research, experimentation,
+                        technology, and innovative ideas.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- STUDENT LIFE -->
+
+        <section
+            class="student-life"
+            id="student-life">
+
+            <div class="section">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <div class="eyebrow">
+                            STUDENT LIFE
+                        </div>
+
+                        <h2>
+
+                            Learn. Lead.
+                            Participate.
+
+                        </h2>
+
+                    </div>
+
+                    <p>
+
+                        RSHS students can participate
+                        in various clubs, organizations,
+                        publications, and activities.
+
+                    </p>
+
+                </div>
+
+
+                <!-- CLUBS -->
+
+                <div class="student-category">
+
+                    <h3>
+                        Clubs
+                    </h3>
+
+                    <div class="organization-list">
+
+                        <span>MATHS</span>
+                        <span>BYR</span>
+                        <span>Eunoia</span>
+                        <span>Agon</span>
+                        <span>Peace</span>
+                        <span>SWAT</span>
+                        <span>KPAP</span>
+                        <span>ROAR</span>
+                        <span>SINAG</span>
+                        <span>GAD</span>
+                        <span>SSS</span>
+                        <span>ACADS</span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ORGANIZATIONS -->
+
+                <div class="student-category">
+
+                    <h3>
+                        Student Organizations
+                    </h3>
+
+                    <div class="organization-list">
+
+                        <span>YES-O</span>
+                        <span>GSP</span>
+                        <span>BSP</span>
+                        <span>BKD</span>
+                        <span>RCY</span>
+                        <span>GRADE 10 ORG.</span>
+                        <span>WATCH</span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- RELIGION BASED -->
+
+                <div class="student-category">
+
+                    <h3>
+                        Religion-Based Organizations
+                    </h3>
+
+                    <div class="organization-list">
+
+                        <span>CHORALE</span>
+                        <span>YFC</span>
+                        <span>MSA</span>
+                        <span>CYM</span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PUBLICATIONS -->
+
+                <div class="student-category">
+
+                    <h3>
+                        School Publications
+                    </h3>
+
+                    <div class="organization-list">
+
+                        <span>HAYLAYA</span>
+                        <span>CATALYST</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- STAFF -->
+
+        <section
+            class="section"
+            id="staff">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <div class="eyebrow">
+                        OUR PEOPLE
+                    </div>
+
+                    <h2>
+
+                        Meet the
+                        RSHS IX staff.
+
+                    </h2>
+
+                </div>
+
+                <p>
+
+                    Meet the administrators,
+                    teaching staff, and
+                    non-teaching personnel
+                    of Regional Science
+                    High School for Region IX.
+
+                </p>
+
+            </div>
+
+
+
+            <!-- SCHOOL ADMINISTRATION -->
+
+            <div class="staff-title">
+
+                <h3>
+                    School Administration
+                </h3>
+
+                <p>
+                    School administrators and officials.
+                </p>
+
+            </div>
+
+
+          
+    <div class="staff-grid">
+
+
+        <!-- PRINCIPAL -->
+
+        <div class="staff-card">
+
+            <div class="staff-photo">
+
+                <img
+                    src="773704382_4343932005855377_3430085343353068670_n.jpg"
+                    alt="Reneboy F. Gutierrez">
+
+            </div>
+
+            <div class="staff-info">
+
+                <h3>
+                    Reneboy F. Gutierrez
+                </h3>
+
+                <p>
+                    School Principal
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- ASSISTANT PRINCIPAL -->
+
+        <div class="staff-card">
+
+            <div class="staff-photo">
+
+                <img
+                    src="773995303_2453688855129357_4175672478921403837_n.jpg"
+                    alt="Gemma A. Nochefranca">
+
+            </div>
+
+            <div class="staff-info">
+
+                <h3>
+                    Gemma A. Nochefranca
+                </h3>
+
+                <p>
+                    Assistant School Principal
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+    <div class="staff-title">
+
+        <h3>
+            Teaching Staff
+        </h3>
+
+        <p>
+            Our teachers and educators.
+        </p>
+
+    </div>
+
+
+    <div class="staff-grid">
+
+
+        <!-- CARPIO RAMIL -->
+
+        <div class="staff-card">
+
+            <div class="staff-photo">
+
+                <img
+                    src="771738713_3383258608647919_4735818582783490885_n.jpg"
+                    alt="Carpio Ramil">
+
+            </div>
+
+            <div class="staff-info">
+
+                <h3>
+                    Carpio Ramil
+                </h3>
+
+                <p>
+                    MAPEH / Values Education Teacher
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- PILARICA T. DIZON -->
+
+        <div class="staff-card">
+
+            <div class="staff-photo">
+
+                <img
+                    src="771379112_1117125477779522_8903038609656568174_n.jpg"
+                    alt="Pilarica T. Dizon">
+
+            </div>
+
+            <div class="staff-info">
+
+                <h3>
+                    Pilarica T. Dizon
+                </h3>
+
+                <p>
+                    English Teacher
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- FLORITA MYRNA P. PATACSIL -->
+
+        <div class="staff-card">
+
+            <div class="staff-photo">
+
+                <img
+                    src="774025611_2335982823900722_8757580618513407913_n.jpg"
+                    alt="Florita Myrna P. Patacsil">
+
+            </div>
+
+            <div class="staff-info">
+
+                <h3>
+                    Florita Myrna P. Patacsil
+                </h3>
+
+                <p>
+                    Economics Teacher
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- DANIELLI MARIE -->
+
+        <div class="staff-card">
+
+            <div class="staff-photo">
+
+                <img
+                    src="773091877_1791692128690764_7217686897461160903_n.jpg"
+                    alt="Danielli Marie">
+
+            </div>
+
+            <div class="staff-info">
+
+                <h3>
+                    Danielli Marie
+                </h3>
+
+                <p>
+                    Science Teacher
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- ANGEL LADRERA -->
+
+        <div class="staff-card">
+
+            <div class="staff-photo">
+
+                <img
+                    src="769691723_1056610727073573_6041199396826762848_n.jpg"
+                    alt="Angel Ladrera">
+
+            </div>
+
+            <div class="staff-info">
+
+                <h3>
+                    Angel Ladrera
+                </h3>
+
+                <p>
+                    Research Teacher
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- MARDIA SAMSON -->
+
+        <div class="staff-card">
+
+            <div class="staff-photo">
+
+                <img
+                    src="772373249_2179912856261240_8230560759808940659_n.jpg"
+                    alt="Mardia Samson">
+
+            </div>
+
+            <div class="staff-info">
+
+                <h3>
+                    Mardia Samson
+                </h3>
+
+                <p>
+                    Creative Technology Teacher
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- JANE LOU LAMBO V. GELVOLEO -->
+
+        <div class="staff-card">
+
+            <div class="staff-photo">
+
+                <img
+                    src="772465745_1634235198346281_30412541118732988_n.jpg"
+                    alt="Jane Lou Lambo V. Gelvoleo">
+
+            </div>
+
+            <div class="staff-info">
+
+                <h3>
+                    Jane Lou Lambo V. Gelvoleo
+                </h3>
+
+                <p>
+                    Enhanced Mathematics Teacher
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- LEILANI MANUEL -->
+
+        <div class="staff-card">
+
+            <div class="staff-photo">
+
+                <img
+                    src="489352408_3984702785107177_9129120403660505358_n.jpg"
+                    alt="Leilani Manuel">
+
+            </div>
+
+            <div class="staff-info">
+
+                <h3>
+                    Leilani Manuel
+                </h3>
+
+                <p>
+                    Filipino Teacher
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+<section class="section" id="students">
+
+    <div class="section-heading">
+
+        <div>
+
+            <div class="eyebrow">
+                OUR STUDENTS
+            </div>
+
+            <h2>
+                Our Classes
+            </h2>
+
+        </div>
+
+        <p>
+            Meet the students of Regional Science High School
+            for Region IX.
+        </p>
+
+    </div>
+
+
+    <!-- SECTION 1 -->
+
+    <div class="class-section">
+
+        <div class="class-photo">
+
+            <img
+                src="e2b039d0-bd08-44c9-bac0-f6c6540238e9.jpeg"
+                alt="Section 1 Class Picture">
+
+        </div>
+
+        <div class="class-info">
+
+            <div class="eyebrow">
+                SECTION 01
+            </div>
+
+            <h3>
+                Faraday
+            </h3>
+
+            <p>
+                Grade 9
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- SECTION 2 -->
+
+    <div class="class-section">
+
+        <div class="class-photo">
+
+            <img
+                src="54b85c49-90f6-449f-a951-312576ac075d.jpeg"
+                alt="Section 2 Class Picture">
+
+        </div>
+
+        <div class="class-info">
+
+            <div class="eyebrow">
+                SECTION 02
+            </div>
+
+            <h3>
+                Dalton
+            </h3>
+
+            <p>
+                Grade 9
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- SECTION 3 -->
+
+    <div class="class-section">
+
+        <div class="class-photo">
+
+            <img
+                src="ee31510a-9ccc-4e3f-9c7c-c71be790a7d4.jpeg">
+
+        </div>
+
+        <div class="class-info">
+
+            <div class="eyebrow">
+                SECTION 03
+            </div>
+
+            <h3>
+                Rutherford
+            </h3>
+
+            <p>
+                Grade 9
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+        <section
+            class="admissions"
+            id="admissions">
+
+            <div class="section">
+
+                <div class="admissions-box">
+
+                    <div>
+
+                        <div class="eyebrow">
+                            ADMISSIONS
+                        </div>
+
+                        <h2>
+                            Ready to become
+                            part of RSHS?
+                        </h2>
+
+                        <p>
+
+                            Regional Science High School
+                            admission information,
+                            requirements, application
+                            procedures, and enrollment
+                            details.
+
+                        </p>
+
+                    </div>
+
+                    <div>
+
+                        <a
+                            href="#contact"
+                            class="button button-yellow">
+
+                            CONTACT SCHOOL
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section
+            class="contact"
+            id="contact">
+
+            <div class="section">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <div class="eyebrow">
+                            GET IN TOUCH
+                        </div>
+
+                        <h2>
+                            Contact RSHS IX.
+                        </h2>
+
+                    </div>
+
+                    <p>
+
+                        For questions, school information,
+                        and other concerns, you may contact
+                        the school through the information
+                        below.
+
+                    </p>
+
+                </div>
+
+
+                <div class="contact-grid">
+
+
+                    <!-- FACEBOOK -->
+
+                    <a
+                        href="https://www.facebook.com/rshs.ix"
+                        target="_blank"
+                        class="contact-card">
+
+                        <div class="contact-icon">
+                            f
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Facebook
+                            </h3>
+
+                            <p>
+                                RSHS IX Official
+                                Facebook Page
+                            </p>
+
+                            <span>
+                                VISIT FACEBOOK →
+                            </span>
+
+                        </div>
+
+                    </a>
+
+
+
+                    <!-- PHONE -->
+
+                    <div class="contact-card">
+
+                        <div class="contact-icon">
+                            ☎
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Contact Number
+                            </h3>
+
+                            <p>
+                                (062) 985-1484
+                            </p>
+
+                            <span>
+                                SCHOOL CONTACT
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- LOCATION -->
+
+                    <div class="contact-card">
+
+                        <div class="contact-icon">
+                            📍
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                School Location
+                            </h3>
+
+                            <p>
+                                Malasiga Drive, San Roque,
+                                Zamboanga City, Philippines, 7000
+                            </p>
+
+                            <span>
+                                REGION IX, PHILIPPINES
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <footer>
+
+            <div class="footer-grid">
+
+
+                <div class="footer-brand">
+
+                    <h2>
+                        RSHS IX
+                    </h2>
+
+                    <p>
+
+                        Regional Science High School
+                        for Region IX.
+
+                        <br><br>
+
+                        Developing students through
+                        science, mathematics, research,
+                        innovation, and education.
+
+                    </p>
+
+                </div>
+
+
+                <div>
+
+                    <h3>
+                        QUICK LINKS
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            <a href="#home">
+                                Home
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#about">
+                                About
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#academics">
+                                Academics
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#student-life">
+                                Student Life
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div>
+
+                    <h3>
+                        SCHOOL
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            <a href="#staff">
+                                Staff
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#admissions">
+                                Admissions
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#contact">
+                                Contact
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="copyright">
+
+                © 2026 Regional Science High School
+                for Region IX. All Rights Reserved.
+
+            </div>
+
+        </footer>
+
+
+    </div>
+
+
+    <script>
+
+        const intro =
+            document.getElementById("intro");
+
+        const cheetah =
+            document.getElementById("cheetah");
+
+        const roar =
+            document.getElementById("roar");
+
+
+        document.querySelectorAll("img").forEach((img) => {
+            img.addEventListener("error", () => {
+                if (img.dataset.fallbackApplied === "true") return;
+
+                img.dataset.fallbackApplied = "true";
+
+                const placeholder = document.createElement("div");
+                placeholder.className = "img-fallback";
+                placeholder.textContent = img.alt || "RSHS IX";
+                img.replaceWith(placeholder);
+            });
+        });
+
+
+        let introStarted = false;
+
+
+        function finishIntro() {
+
+            intro.style.display = "none";
+
+            document.body.style.overflow = "auto";
+
+        }
+
+
+        function startIntroSequence() {
+
+            if (introStarted)
+                return;
+
+            introStarted = true;
+
+
+            cheetah.classList.remove(
+                "animate-cheetah"
+            );
+
+            void cheetah.offsetWidth;
+
+            cheetah.classList.add(
+                "animate-cheetah"
+            );
+
+            if (roar) {
+                roar.currentTime = 0;
+                roar.volume = 1.0;
+                roar.play().catch(() => {
+                    // Browsers may block autoplay until user interaction.
+                });
+            }
+
+        }
+
+
+        function unlockAudio() {
+            if (!roar || !introStarted) return;
+
+            if (roar.paused) {
+                roar.play().catch(() => {});
+            }
+        }
+
+
+        window.addEventListener(
+            "load",
+            () => {
+
+                setTimeout(
+                    startIntroSequence,
+                    100
+                );
+
+            }
+        );
+
+
+        document.addEventListener(
+            "pointerdown",
+            unlockAudio,
+            { once: true }
+        );
+
+
+        document.addEventListener(
+            "keydown",
+            unlockAudio,
+            { once: true }
+        );
+
+
+        cheetah.addEventListener(
+            "click",
+            () => {
+
+                if (!introStarted) {
+
+                    startIntroSequence();
+
+                }
+
+            }
+        );
+
+
+        cheetah.addEventListener(
+            "animationend",
+            (event) => {
+
+                if (
+                    event.animationName ===
+                    "zoomIn"
+                ) {
+
+                    if (roar) {
+                        roar.pause();
+                    }
+
+                    finishIntro();
+
+                }
+
+            }
+        );
+
+    </script>
+
+
+</body>
+
+</html>
